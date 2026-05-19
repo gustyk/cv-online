@@ -341,7 +341,27 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Parallax for hero blobs
+    // Peningkatan hover pada Expertise Cards menggunakan GSAP untuk efek yang lebih halus
+    document.querySelectorAll('.expertise-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, { y: -12, boxShadow: '0 25px 50px rgba(0,0,0,0.5)', duration: 0.3 });
+        });
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, { y: 0, boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)', duration: 0.3 });
+        });
+    });
+
+    // Peningkatan hover pada Experience Cards
+    document.querySelectorAll('.experience-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, { borderColor: 'var(--accent)', duration: 0.3 });
+        });
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, { borderColor: 'var(--border)', duration: 0.3 });
+        });
+    });
+
+    // Parallax untuk blob
     gsap.to('.hero-bg-blob-1', {
         y: -100,
         scrollTrigger: {
@@ -362,7 +382,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         }
     });
 
-    // Parallax for focus image
+    // Parallax untuk focus image
     gsap.to('.focus-image-placeholder', {
         y: -30,
         scrollTrigger: {
