@@ -1,0 +1,7 @@
+*
+!.gitignore
+!index.html
+!css/
+!css/*
+!js/
+!js/*

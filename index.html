@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tikno, S.T., M.Kom. — ERP Specialist, BPMN Practitioner, Digital Transformation Consultant. Transforming business processes into practical digital systems.">
+    <title>Tikno, S.T., M.Kom. — Digital Systems Specialist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Grid Background -->
+    <div class="grid-bg"></div>
+
+    <!-- Gradient Spotlight -->
+    <div class="spotlight" id="spotlight"></div>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-symbol"></div>
+        <span class="loader-progress">LOADING</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#hero" class="nav-logo">Tikno<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#teaching">Teaching</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu-links">
+            <li><a href="#hero" class="mobile-link">Home</a></li>
+            <li><a href="#expertise" class="mobile-link">Expertise</a></li>
+            <li><a href="#focus" class="mobile-link">Focus</a></li>
+            <li><a href="#experience" class="mobile-link">Experience</a></li>
+            <li><a href="#teaching" class="mobile-link">Teaching</a></li>
+            <li><a href="#research" class="mobile-link">Research</a></li>
+            <li><a href="#credentials" class="mobile-link">Credentials</a></li>
+            <li><a href="#contact" class="mobile-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Scroll Indicator Dots -->
+    <div class="scroll-dots" id="scrollDots">
+        <div class="scroll-dot active" data-section="hero"></div>
+        <div class="scroll-dot" data-section="expertise"></div>
+        <div class="scroll-dot" data-section="focus"></div>
+        <div class="scroll-dot" data-section="experience"></div>
+        <div class="scroll-dot" data-section="teaching"></div>
+        <div class="scroll-dot" data-section="research"></div>
+        <div class="scroll-dot" data-section="credentials"></div>
+        <div class="scroll-dot" data-section="positioning"></div>
+        <div class="scroll-dot" data-section="contact"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-blob hero-bg-blob-1"></div>
+        <div class="hero-bg-blob hero-bg-blob-2"></div>
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1 class="hero-name" id="heroName">Tikno, S.T., M.Kom.</h1>
+                    <h2 class="hero-title">
+                        <span class="gradient-text">Transforming Business Processes</span><br>
+                        Into Practical Digital Systems
+                    </h2>
+                    <div class="hero-tags">
+                        <span class="hero-tag">ERP Specialist</span>
+                        <span class="hero-tag">BPMN Practitioner</span>
+                        <span class="hero-tag">Digital Transformation</span>
+                    </div>
+                    <p class="hero-description">
+                        Helping organizations analyze workflows, model processes, and implement scalable digital solutions — from concept to execution.
+                    </p>
+                    <a href="#expertise" class="hero-cta">
+                        <span>Explore My Work</span>
+                        <span class="cta-arrows">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                    </a>
+                </div>
+                <div class="hero-photo">
+                    <div class="hero-photo-ring"></div>
+                    <div class="hero-photo-placeholder">
+                        <!-- Replace with: <img src="assets/images/profile.jpg" alt="Tikno, S.T., M.Kom."> -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>
+                        <span>Your Photo Here<br>280 × 280px</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise" id="expertise">
+        <div class="container">
+            <span class="section-label reveal">01 — Expertise</span>
+            <h2 class="section-heading reveal stagger-1">
+                <span class="gradient-text">Core Expertise</span>
+            </h2>
+            <p class="section-subtitle reveal stagger-2">A blend of technical depth and organizational understanding — built across academic research and hands-on implementation.</p>
+            <div class="expertise-grid">
+                <div class="expertise-card reveal stagger-1 tilt-card">
+                    <div class="scan-line"></div>
+                    <span class="corner-accent top-left"></span>
+                    <span class="corner-accent top-right"></span>
+                    <span class="corner-accent bottom-left"></span>
+                    <span class="corner-accent bottom-right"></span>
+                    <div class="tilt-card-inner">
+                    <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="4"/><path d="M16 18h16M16 24h16M16 30h10"/></svg>
+                    <h3>Enterprise Resource Planning</h3>
+                    <p>End-to-end ERP implementation and optimization for organizations of all sizes.</p>
+                    </div>
+                </div>
+                <div class="expertise-card reveal stagger-2 tilt-card">
+                    <div class="scan-line"></div>
+                    <span class="corner-accent top-left"></span>
+                    <span class="corner-accent top-right"></span>
+                    <span class="corner-accent bottom-left"></span>
+                    <span class="corner-accent bottom-right"></span>
+                    <div class="tilt-card-inner">
+                    <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><path d="M24 12v12l8 4"/></svg>
+                    <h3>Business Process Modeling</h3>
+                    <p>Visual workflow mapping and process standardization using BPMN notation.</p>
+                    </div>
+                </div>
+                <div class="expertise-card reveal stagger-3 tilt-card">
+                    <div class="scan-line"></div>
+                    <span class="corner-accent top-left"></span>
+                    <span class="corner-accent top-right"></span>
+                    <span class="corner-accent bottom-left"></span>
+                    <span class="corner-accent bottom-right"></span>
+                    <div class="tilt-card-inner">
+                    <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 36V16l16-8 16 8v20L24 44 8 36z"/><path d="M8 16l16 8 16-8M24 24v20"/></svg>
+                    <h3>Odoo ERP Implementation</h3>
+                    <p>Hands-on CRM, Sales, Inventory, and HRM deployment with real business scenarios.</p>
+                    </div>
+                </div>
+                <div class="expertise-card reveal stagger-4 tilt-card">
+                    <div class="scan-line"></div>
+                    <span class="corner-accent top-left"></span>
+                    <span class="corner-accent top-right"></span>
+                    <span class="corner-accent bottom-left"></span>
+                    <span class="corner-accent bottom-right"></span>
+                    <div class="tilt-card-inner">
+                    <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 4L6 14v20l18 10 18-10V14L24 4z"/><path d="M6 14l18 10 18-10M24 24v20"/></svg>
+                    <h3>IT Governance & Audit</h3>
+                    <p>Certified IT Auditor — system compliance, risk assessment, and governance frameworks.</p>
+                    </div>
+                </div>
+                <div class="expertise-card reveal stagger-5 tilt-card">
+                    <div class="scan-line"></div>
+                    <span class="corner-accent top-left"></span>
+                    <span class="corner-accent top-right"></span>
+                    <span class="corner-accent bottom-left"></span>
+                    <span class="corner-accent bottom-right"></span>
+                    <div class="tilt-card-inner">
+                    <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8h24v32H12z"/><path d="M20 16h8M20 22h8M20 28h5"/></svg>
+                    <h3>Business Process Analysis</h3>
+                    <p>Deep-dive workflow evaluation, bottleneck identification, and optimization strategies.</p>
+                    </div>
+                </div>
+                <div class="expertise-card reveal stagger-6 tilt-card">
+                    <div class="scan-line"></div>
+                    <span class="corner-accent top-left"></span>
+                    <span class="corner-accent top-right"></span>
+                    <span class="corner-accent bottom-left"></span>
+                    <span class="corner-accent bottom-right"></span>
+                    <div class="tilt-card-inner">
+                    <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 4v8M24 36v8M4 24h8M36 24h8M10 10l6 6M32 32l6 6M38 10l-6 6M16 32l-6 6"/><circle cx="24" cy="24" r="8"/></svg>
+                    <h3>Digital Transformation</h3>
+                    <p>Strategic technology adoption roadmaps tailored to organizational readiness.</p>
+                    </div>
+                </div>
+                <div class="expertise-card reveal stagger-7 tilt-card">
+                    <div class="scan-line"></div>
+                    <span class="corner-accent top-left"></span>
+                    <span class="corner-accent top-right"></span>
+                    <span class="corner-accent bottom-left"></span>
+                    <span class="corner-accent bottom-right"></span>
+                    <div class="tilt-card-inner">
+                    <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 4h16v8H16zM8 12h32v28H8z"/><path d="M16 20h16M16 26h16M16 32h10"/></svg>
+                    <h3>AI-Assisted Development</h3>
+                    <p>Modern development workflows powered by AI tools for faster, smarter delivery.</p>
+                    </div>
+                </div>
+                <div class="expertise-card reveal stagger-8 tilt-card">
+                    <div class="scan-line"></div>
+                    <span class="corner-accent top-left"></span>
+                    <span class="corner-accent top-right"></span>
+                    <span class="corner-accent bottom-left"></span>
+                    <span class="corner-accent bottom-right"></span>
+                    <div class="tilt-card-inner">
+                    <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="16" cy="24" r="8"/><circle cx="32" cy="24" r="8"/><path d="M24 18v12"/></svg>
+                    <h3>Information Systems Adoption</h3>
+                    <p>Bridging the gap between technology capabilities and actual user adoption.</p>
+                    </div>
+                </div>
+                <div class="expertise-card reveal stagger-9 tilt-card">
+                    <div class="scan-line"></div>
+                    <span class="corner-accent top-left"></span>
+                    <span class="corner-accent top-right"></span>
+                    <span class="corner-accent bottom-left"></span>
+                    <span class="corner-accent bottom-right"></span>
+                    <div class="tilt-card-inner">
+                    <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 40V16l16-12 16 12v24"/><path d="M18 40V30h12v10"/><path d="M4 20l20-16 20 16"/></svg>
+                    <h3>SME Digitalization</h3>
+                    <p>Practical, step-by-step digital solutions designed for small and medium enterprises.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee Section -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <span class="marquee-text">ERP</span>
+            <span class="marquee-separator">◆</span>
+            <span class="marquee-text">BPMN</span>
+            <span class="marquee-separator">◆</span>
+            <span class="marquee-text">ODOO</span>
+            <span class="marquee-separator">◆</span>
+            <span class="marquee-text">DIGITAL TRANSFORMATION</span>
+            <span class="marquee-separator">◆</span>
+            <span class="marquee-text">IT AUDIT</span>
+            <span class="marquee-separator">◆</span>
+            <span class="marquee-text">AI DEVELOPMENT</span>
+            <span class="marquee-separator">◆</span>
+            <span class="marquee-text">ERP</span>
+            <span class="marquee-separator">◆</span>
+            <span class="marquee-text">BPMN</span>
+            <span class="marquee-separator">◆</span>
+            <span class="marquee-text">ODOO</span>
+            <span class="marquee-separator">◆</span>
+            <span class="marquee-text">DIGITAL TRANSFORMATION</span>
+            <span class="marquee-separator">◆</span>
+            <span class="marquee-text">IT AUDIT</span>
+            <span class="marquee-separator">◆</span>
+            <span class="marquee-text">AI DEVELOPMENT</span>
+            <span class="marquee-separator">◆</span>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item reveal stagger-1">
+                    <div class="counter" data-target="8">0</div>
+                    <div class="counter-label">Publications</div>
+                </div>
+                <div class="stat-item reveal stagger-2">
+                    <div class="counter" data-target="30">0</div>
+                    <div class="counter-label">Citations</div>
+                </div>
+                <div class="stat-item reveal stagger-3">
+                    <div class="counter" data-target="4">0</div>
+                    <div class="counter-label">Industry Projects</div>
+                </div>
+                <div class="stat-item reveal stagger-4">
+                    <div class="counter" data-target="3">0</div>
+                    <div class="counter-label">Courses Taught</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="line-divider"></div>
+
+    <!-- Professional Focus Section -->
+    <section class="focus" id="focus">
+        <div class="container">
+            <span class="section-label reveal">02 — Focus</span>
+            <div class="focus-grid">
+                <div class="focus-content">
+                    <h3 class="reveal stagger-1">
+                        From Business Workflows<br>
+                        <span class="gradient-text">to Digital Reality</span>
+                    </h3>
+                    <p class="reveal stagger-2">I help organizations translate operational processes into structured, scalable digital solutions — practical, not theoretical. Every system I build starts with understanding the people who use it.</p>
+                    <ul class="focus-list">
+                        <li class="reveal stagger-3">
+                            <span class="bullet"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            <span>Analyze business workflows and identify optimization opportunities</span>
+                        </li>
+                        <li class="reveal stagger-4">
+                            <span class="bullet"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            <span>Model processes using industry-standard BPMN notation</span>
+                        </li>
+                        <li class="reveal stagger-5">
+                            <span class="bullet"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            <span>Implement ERP systems that align with actual business needs</span>
+                        </li>
+                        <li class="reveal stagger-6">
+                            <span class="bullet"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            <span>Evaluate system readiness and support digital adoption</span>
+                        </li>
+                        <li class="reveal stagger-7">
+                            <span class="bullet"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            <span>Guide SMEs through practical, step-by-step digitalization</span>
+                        </li>
+                    </ul>
+                    <p class="focus-quote reveal stagger-8">Every system I build starts with understanding the people who use it.</p>
+                </div>
+                <div class="focus-image reveal-scale">
+                    <div class="focus-image-placeholder">
+                        <!-- Replace with: <img src="assets/images/process-diagram.svg" alt="Business Process Diagram"> -->
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="12" rx="2"/><rect x="28" y="4" width="16" height="12" rx="2"/><rect x="16" y="20" width="16" height="12" rx="2"/><rect x="4" y="36" width="16" height="8" rx="2"/><rect x="28" y="36" width="16" height="8" rx="2"/><path d="M12 16v4M36 16v4M24 32v4M12 32v4M36 32v4"/></svg>
+                        <span>Process Diagram Illustration<br>500 × 400px</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <span class="section-label reveal">03 — Experience</span>
+            <h2 class="section-heading reveal stagger-1">
+                <span class="gradient-text">Industry Experience</span>
+            </h2>
+            <p class="section-subtitle reveal stagger-2">Real-world impact, proven results — from enterprise ERP audits to SME digital adoption programs.</p>
+            <div class="experience-grid">
+                <div class="experience-card reveal stagger-1">
+                    <span class="experience-label">ERP Analysis & Audit</span>
+                    <h3>ERP Analysis & System Audit</h3>
+                    <span class="experience-client">PT Semen Indonesia Distribusi • PT Waru Abadi</span>
+                    <p>Comprehensive ERP evaluation covering business process analysis, workflow optimization, operational alignment, and system governance assessment.</p>
+                </div>
+                <div class="experience-card reveal stagger-2">
+                    <span class="experience-label">User Acceptance Testing</span>
+                    <h3>UAT Documentation</h3>
+                    <span class="experience-client">PT Semen Indonesia Distribusi</span>
+                    <p>End-to-end User Acceptance Test documentation for enterprise ERP systems — validating workflows, usability, implementation readiness, and process conformity.</p>
+                </div>
+                <div class="experience-card reveal stagger-3">
+                    <span class="experience-label">Process Visualization</span>
+                    <h3>BPMN & Process Visualization</h3>
+                    <span class="experience-client">Academic & Organizational Environments</span>
+                    <p>Facilitated business process mapping initiatives — workflow documentation, process standardization, operational manuals, and continuous improvement support.</p>
+                </div>
+                <div class="experience-card reveal stagger-4">
+                    <span class="experience-label">Implementation</span>
+                    <h3>Odoo CRM & ERP Implementation</h3>
+                    <span class="experience-client">SME Digital Adoption Programs</span>
+                    <p>Hands-on implementation support for SMEs adopting Odoo-based systems — simplifying operations, integrating workflows, and driving practical digital adoption.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaching Section -->
+    <section class="teaching" id="teaching">
+        <div class="container">
+            <span class="section-label reveal">04 — Teaching</span>
+            <h2 class="section-heading reveal stagger-1" style="text-align: center;">
+                <span class="gradient-text">Teaching & Education</span>
+            </h2>
+            <div class="teaching-philosophy">
+                <p class="quote-text reveal stagger-2">
+                    I believe in learning by doing. My students don't just study theory — they work with actual industry tools, real business scenarios, and modern development workflows.
+                </p>
+            </div>
+            <div class="teaching-courses">
+                <div class="course-card reveal stagger-1">
+                    <span class="course-number">01</span>
+                    <h3>Enterprise Resource Planning</h3>
+                    <p>Odoo-based implementation with real business scenarios, integrated with BPMN process analysis.</p>
+                    <div class="course-tags">
+                        <span class="course-tag">Sales</span>
+                        <span class="course-tag">Purchase</span>
+                        <span class="course-tag">Inventory</span>
+                        <span class="course-tag">Manufacturing</span>
+                        <span class="course-tag">HRM</span>
+                    </div>
+                </div>
+                <div class="course-card reveal stagger-2">
+                    <span class="course-number">02</span>
+                    <h3>Business Process Modeling</h3>
+                    <p>Process visualization and workflow analysis supporting organizational standardization and digital transformation.</p>
+                    <div class="course-tags">
+                        <span class="course-tag">BPMN</span>
+                        <span class="course-tag">Workflow Analysis</span>
+                        <span class="course-tag">ERP Readiness</span>
+                    </div>
+                </div>
+                <div class="course-card reveal stagger-3">
+                    <span class="course-number">03</span>
+                    <h3>Web Development & AI</h3>
+                    <p>Modern stack with AI-powered development practices to prepare students for contemporary software engineering.</p>
+                    <div class="course-tags">
+                        <span class="course-tag">HTML</span>
+                        <span class="course-tag">CSS</span>
+                        <span class="course-tag">JavaScript</span>
+                        <span class="course-tag">React</span>
+                        <span class="course-tag">Supabase</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="research" id="research">
+        <div class="container">
+            <span class="section-label reveal">05 — Research</span>
+            <h2 class="section-heading reveal stagger-1" style="text-align: center;">
+                <span class="gradient-text">Research & Contributions</span>
+            </h2>
+            <div class="research-content">
+                <p class="reveal stagger-2">My research explores how organizations and individuals embrace digital technologies — from ERP systems to mobile payments, with a focus on practical, real-world adoption.</p>
+                <div class="research-areas reveal stagger-3">
+                    <span class="research-pill">ERP Adoption</span>
+                    <span class="research-pill">Digital Marketing</span>
+                    <span class="research-pill">UMKM Digitalization</span>
+                    <span class="research-pill">Mobile Payments</span>
+                    <span class="research-pill">AI + BPMN</span>
+                </div>
+                <div class="research-contributions reveal stagger-4">
+                    <h4>Selected Publications</h4>
+                    <ul>
+                        <li><a href="https://scholar.google.com/citations?view_op=view_citation&hl=id&user=4sZhahkAAAAJ&citation_for_view=4sZhahkAAAAJ:UeHWp8X0CEIC" target="_blank" rel="noopener noreferrer">Evaluating The Impact of Digital Marketing Strategies on Enrollment Decisions through PLS-SEM Analysis</a> — <span class="pub-venue">Jurnal Sistem Informasi Bisnis, 2025</span></li>
+                        <li><a href="https://scholar.google.com/citations?view_op=view_citation&hl=id&user=4sZhahkAAAAJ&citation_for_view=4sZhahkAAAAJ:zYLM7Y9cAGgC" target="_blank" rel="noopener noreferrer">Supporting Small-Scale Investors Through a User-Driven Investment Lifecycle Web App</a> — <span class="pub-venue">Int. Conf. on Digital, Social, and Science, 2025</span></li>
+                        <li><a href="https://scholar.google.com/citations?view_op=view_citation&hl=id&user=4sZhahkAAAAJ&citation_for_view=4sZhahkAAAAJ:qjMakFHDy7sC" target="_blank" rel="noopener noreferrer">Investigating Consumer Acceptance of Mobile Payment Services in Indonesia</a> — <span class="pub-venue">Procedia Computer Science, 2024</span></li>
+                        <li><a href="https://scholar.google.com/citations?view_op=view_citation&hl=id&user=4sZhahkAAAAJ&citation_for_view=4sZhahkAAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener noreferrer">Measuring the Moderating Effect of Age, Gender and Educational Level on UMKM Go Digital Program</a> — <span class="pub-venue">AIP Conference Proceedings, 2019</span></li>
+                        <li><a href="https://scholar.google.com/citations?view_op=view_citation&hl=id&user=4sZhahkAAAAJ&citation_for_view=4sZhahkAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener noreferrer">Hubungan Usia, Tingkat Pendidikan, dan Gender Pemilik UMKM Terhadap Program UMKM Go Digital</a> — <span class="pub-venue">Jurnal Teknologia, 2019</span></li>
+                        <li><a href="https://scholar.google.com/citations?view_op=view_citation&hl=id&user=4sZhahkAAAAJ&citation_for_view=4sZhahkAAAAJ:9yKSN-GCB0IC" target="_blank" rel="noopener noreferrer">Exploring the Acceptance for Pixel Technology Implementation in Facebook Ads Among Advertisers in Indonesia</a> — <span class="pub-venue">KnE Social Sciences, 2018</span></li>
+                        <li><a href="https://scholar.google.com/citations?view_op=view_citation&hl=id&user=4sZhahkAAAAJ&citation_for_view=4sZhahkAAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener noreferrer">Measuring Performance of Facebook Advertising Based on Media Used: A Case Study on Online Shops in Indonesia</a> — <span class="pub-venue">Procedia Computer Science, 2017</span></li>
+                        <li><a href="https://scholar.google.com/citations?view_op=view_citation&hl=id&user=4sZhahkAAAAJ&citation_for_view=4sZhahkAAAAJ:IjCSPb-OGe4C" target="_blank" rel="noopener noreferrer">Analysis of Self-Efficacy and User Satisfaction in Sustainable Use of The GOBIS Surabaya Application</a> — <span class="pub-venue">Jurnal Sistem Informasi Bisnis</span></li>
+                    </ul>
+                    <div class="scholar-link reveal stagger-5">
+                        <a href="https://scholar.google.com/citations?user=4sZhahkAAAAJ&hl=id" target="_blank" rel="noopener noreferrer" class="scholar-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.225L12 4l7.162 8.725L24 9.5z"/></svg>
+                            <span>View Full Profile on Google Scholar</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials Section -->
+    <section class="credentials" id="credentials">
+        <div class="container">
+            <span class="section-label reveal">06 — Credentials</span>
+            <h2 class="section-heading reveal stagger-1">
+                <span class="gradient-text">Certifications & Education</span>
+            </h2>
+            <div class="credentials-grid">
+                <div class="credentials-left">
+                    <h3 class="reveal stagger-2">Certifications</h3>
+                    <div class="cert-list">
+                        <div class="cert-item reveal stagger-3">
+                            <h4>Microsoft Certified Educator</h4>
+                            <p>MCE — Global teaching technology standard</p>
+                        </div>
+                        <div class="cert-item reveal stagger-4">
+                            <h4>Certified IT Auditor</h4>
+                            <p>Badan Nasional Sertifikasi Profesi</p>
+                        </div>
+                    </div>
+                    <div class="membership-item reveal stagger-5">
+                        <h4>Professional Membership</h4>
+                        <p>Association of Information Systems — Indonesia Chapter</p>
+                    </div>
+                </div>
+                <div class="credentials-right">
+                    <h3 class="reveal stagger-2">Academic Background</h3>
+                    <div class="education-timeline" id="educationTimeline">
+                        <div class="timeline-line"></div>
+                        <div class="education-item reveal stagger-3">
+                            <span class="degree">Doctoral Degree <span class="ongoing">Ongoing</span></span>
+                            <p class="school">National Central University</p>
+                            <p class="field">Industrial Management</p>
+                        </div>
+                        <div class="education-item reveal stagger-4">
+                            <span class="degree">Master of Computer Science</span>
+                            <p class="school">Institut Teknologi Sepuluh Nopember</p>
+                            <p class="field">Computer Science</p>
+                        </div>
+                        <div class="education-item reveal stagger-5">
+                            <span class="degree">Bachelor of Industrial Engineering</span>
+                            <p class="school">Institut Teknologi Sepuluh Nopember</p>
+                            <p class="field">Industrial Engineering</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Positioning Section -->
+    <section class="positioning" id="positioning">
+        <div class="positioning-bg-blob"></div>
+        <div class="container">
+            <div class="positioning-content">
+                <span class="section-label reveal">07 — Positioning</span>
+                <h2 class="positioning-heading reveal stagger-1">
+                    <span class="gradient-text">Practical Digital Systems Specialist</span>
+                </h2>
+                <p class="positioning-text reveal stagger-2">
+                    I help organizations analyze business processes, model operational workflows, and implement practical digital systems using ERP, BPMN, and modern software technologies.
+                </p>
+                <p class="positioning-cta reveal stagger-3">Let's build something that works.</p>
+                <div class="positioning-keywords reveal stagger-4">
+                    <span class="keyword-pill">ERP</span>
+                    <span class="keyword-pill">BPMN</span>
+                    <span class="keyword-pill">Odoo</span>
+                    <span class="keyword-pill">IT Audit</span>
+                    <span class="keyword-pill">IT Governance</span>
+                    <span class="keyword-pill">Business Process</span>
+                    <span class="keyword-pill">Digital Transformation</span>
+                    <span class="keyword-pill">Information Systems</span>
+                    <span class="keyword-pill">AI-Assisted Development</span>
+                    <span class="keyword-pill">SME Digitalization</span>
+                    <span class="keyword-pill">Enterprise Workflow</span>
+                    <span class="keyword-pill">System Analysis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <span class="section-label reveal">08 — Contact</span>
+                <h2 class="contact-heading reveal stagger-1">
+                    Ready to Transform<br>
+                    <span class="gradient-text">Your Business Processes?</span>
+                </h2>
+                <p class="contact-text reveal stagger-2">
+                    Whether you need ERP implementation, process modeling, or digital transformation guidance — let's talk.
+                </p>
+                <div class="contact-buttons reveal stagger-3">
+                    <a href="mailto:your.email@example.com" class="btn-primary">
+                        <span>Get In Touch</span>
+                        <span class="btn-arrows">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                    </a>
+                    <a href="#" class="btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                        <span>Download CV</span>
+                    </a>
+                </div>
+                <div class="contact-info reveal stagger-4">
+                    <div class="contact-info-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <span>your.email@example.com</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>Indonesia</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <span class="footer-logo">Tikno, S.T., M.Kom.</span>
+        <span class="footer-text">&copy; 2026 — Built with precision and purpose.</span>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
