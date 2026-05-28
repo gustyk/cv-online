@@ -104,15 +104,15 @@ body {
 /* --- Cursor Trail --- */
 .cursor-trail {
     position: fixed;
-    top: -10px;
-    left: -10px;
-    width: 20px;
-    height: 20px;
+    top: -8px;
+    left: -8px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     pointer-events: none;
     z-index: 99997;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-    mix-blend-mode: screen;
+    background: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.4), 0 0 20px rgba(139, 92, 246, 0.2);
 }
 
 /* --- Noise Overlay --- */
@@ -1330,39 +1330,56 @@ section {
 
 .focus-image-frame {
     position: relative;
-    border-radius: 16px;
+    border-radius: 20px;
     transform-style: preserve-3d;
-    transition: transform 0.4s var(--transition-smooth);
+    transition: transform 0.6s var(--transition-smooth);
+}
+
+.focus-image-frame:hover {
+    transform: rotateY(-4deg) rotateX(2deg) scale(1.03);
 }
 
 .focus-image-border {
     position: absolute;
     inset: -3px;
-    border-radius: 18px;
-    background: conic-gradient(from var(--angle), #3b82f6, #8b5cf6, #06b6d4, #a78bfa, #3b82f6);
+    border-radius: 22px;
+    background: conic-gradient(from var(--angle), #3b82f6, #8b5cf6, #06b6d4, #c084fc, #3b82f6);
     z-index: 0;
-    animation: borderRotate 4s linear infinite;
-    opacity: 0.7;
+    animation: borderRotate 5s linear infinite;
+    opacity: 0.8;
+}
+
+.focus-image-border::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 19px;
+    background: var(--bg-primary);
 }
 
 @keyframes borderRotate { to { --angle: 360deg; } }
 
 .focus-image-glow {
     position: absolute;
-    inset: -30px;
-    border-radius: 30px;
-    background: conic-gradient(from var(--angle), rgba(59,130,246,0.2), rgba(139,92,246,0.2), rgba(6,182,212,0.2), rgba(59,130,246,0.2));
-    filter: blur(40px);
-    animation: borderRotate 4s linear infinite;
-    opacity: 0.4;
+    inset: -40px;
+    border-radius: 40px;
+    background: conic-gradient(from var(--angle), rgba(59,130,246,0.15), rgba(139,92,246,0.15), rgba(6,182,212,0.15), rgba(192,132,252,0.15), rgba(59,130,246,0.15));
+    filter: blur(50px);
+    animation: borderRotate 5s linear infinite;
+    opacity: 0.5;
     z-index: -1;
+    transition: opacity 0.6s ease;
+}
+
+.focus-image-frame:hover .focus-image-glow {
+    opacity: 0.8;
 }
 
 .focus-image-placeholder {
     width: 100%;
     height: 400px;
     background: var(--bg-tertiary);
-    border-radius: 16px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1377,21 +1394,36 @@ section {
     border: 1px solid var(--border-light);
 }
 
+.focus-image-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(10, 10, 10, 0.6) 100%);
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.focus-image-frame:hover .focus-image-placeholder::before {
+    opacity: 1;
+}
+
 .focus-image-placeholder::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.03) 45%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.03) 55%, transparent 70%);
-    background-size: 250% 100%;
-    background-position: 200% 0;
-    animation: imageShine 6s ease-in-out infinite;
+    background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.04) 45%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 55%, transparent 70%);
+    background-size: 300% 100%;
+    background-position: 300% 0;
+    animation: imageShine 8s ease-in-out infinite;
     pointer-events: none;
-    z-index: 2;
+    z-index: 3;
 }
 
 @keyframes imageShine {
-    0%, 100% { background-position: 200% 0; }
-    50% { background-position: -50% 0; }
+    0%, 100% { background-position: 300% 0; }
+    50% { background-position: -100% 0; }
 }
 
 .focus-image-placeholder img {
@@ -1400,13 +1432,13 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 16px;
-    transition: transform 0.6s var(--transition-smooth), filter 0.6s ease;
+    border-radius: 20px;
+    transition: transform 0.8s var(--transition-smooth), filter 0.8s ease;
 }
 
 .focus-image-frame:hover .focus-image-placeholder img {
-    transform: scale(1.05);
-    filter: brightness(1.1);
+    transform: scale(1.08);
+    filter: brightness(1.15) saturate(1.1);
 }
 
 /* --- Focus Orbit & Dots --- */
@@ -1423,10 +1455,34 @@ section {
     animation: orbitSpin 12s linear infinite;
 }
 
+.focus-orbit-1::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+}
+
 .focus-orbit-2 {
-    inset: -40px;
+    inset: -45px;
     border-color: rgba(139, 92, 246, 0.08);
-    animation: orbitSpin 18s linear infinite reverse;
+    animation: orbitSpin 20s linear infinite reverse;
+}
+
+.focus-orbit-2::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 30%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent-purple);
+    box-shadow: 0 0 8px var(--accent-purple);
 }
 
 @keyframes orbitSpin { to { transform: rotate(360deg); } }
@@ -1502,7 +1558,21 @@ section {
     border-radius: 16px;
     position: relative;
     overflow: hidden;
-    transition: transform 0.4s var(--transition-smooth), border-color 0.4s ease;
+    transition: transform 0.4s var(--transition-smooth), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.experience-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.02) 45%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.02) 55%, transparent 70%);
+    background-size: 300% 100%;
+    background-position: 300% 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .experience-card::after {
@@ -1519,8 +1589,15 @@ section {
 }
 
 .experience-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(59, 130, 246, 0.12);
+    transform: translateY(-6px);
+    border-color: rgba(59, 130, 246, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 30px rgba(59, 130, 246, 0.03);
+}
+
+.experience-card:hover::before {
+    opacity: 1;
+    background-position: -100% 0;
+    transition: background-position 0.8s var(--transition-smooth), opacity 0.4s ease;
 }
 
 .experience-card:hover::after { transform: scaleY(1); }
@@ -1594,12 +1671,33 @@ section {
     border-radius: 16px;
     position: relative;
     overflow: hidden;
-    transition: transform 0.4s var(--transition-smooth), border-color 0.4s ease;
+    transition: transform 0.4s var(--transition-smooth), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.course-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.02) 45%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.02) 55%, transparent 70%);
+    background-size: 300% 100%;
+    background-position: 300% 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .course-card:hover {
-    transform: translateY(-6px) scale(1.01);
+    transform: translateY(-8px) scale(1.02);
     border-color: rgba(59, 130, 246, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25), 0 0 30px rgba(59, 130, 246, 0.04);
+}
+
+.course-card:hover::before {
+    opacity: 1;
+    background-position: -100% 0;
+    transition: background-position 0.8s var(--transition-smooth), opacity 0.4s ease;
 }
 
 .course-number {
