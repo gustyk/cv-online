@@ -55,7 +55,7 @@ animateCursor();
 const trailCanvas = document.getElementById('cursorTrailCanvas');
 const trailCtx = trailCanvas.getContext('2d');
 const trailPoints = [];
-const TRAIL_LENGTH = 30;
+const TRAIL_LENGTH = 25;
 
 function resizeTrailCanvas() {
     trailCanvas.width = window.innerWidth;
@@ -65,7 +65,7 @@ resizeTrailCanvas();
 window.addEventListener('resize', resizeTrailCanvas);
 
 document.addEventListener('mousemove', (e) => {
-    trailPoints.push({ x: e.clientX, y: e.clientY, time: Date.now() });
+    trailPoints.push({ x: e.clientX, y: e.clientY });
     if (trailPoints.length > TRAIL_LENGTH) trailPoints.shift();
 });
 
@@ -77,47 +77,45 @@ function drawTrail() {
         return;
     }
 
-    const now = Date.now();
-
-    // Remove old points (older than 300ms)
-    while (trailPoints.length > 0 && now - trailPoints[0].time > 300) {
-        trailPoints.shift();
-    }
-
-    if (trailPoints.length < 2) {
-        requestAnimationFrame(drawTrail);
-        return;
-    }
-
-    // Draw the trail as a smooth curve
+    // Draw glowing trail
     for (let i = 1; i < trailPoints.length; i++) {
         const p0 = trailPoints[i - 1];
         const p1 = trailPoints[i];
-        const age = (now - p1.time) / 300;
-        const alpha = Math.max(0, 1 - age) * 0.6;
-        const width = Math.max(1, (1 - age) * 8);
+        const progress = i / trailPoints.length;
+        const alpha = progress * 0.8;
+        const width = progress * 10 + 2;
 
+        // Glow layer
         trailCtx.beginPath();
         trailCtx.moveTo(p0.x, p0.y);
         trailCtx.lineTo(p1.x, p1.y);
-        trailCtx.strokeStyle = `rgba(59, 130, 246, ${alpha})`;
+        trailCtx.strokeStyle = `rgba(139, 92, 246, ${alpha * 0.4})`;
+        trailCtx.lineWidth = width + 8;
+        trailCtx.lineCap = 'round';
+        trailCtx.lineJoin = 'round';
+        trailCtx.stroke();
+
+        // Core layer
+        trailCtx.beginPath();
+        trailCtx.moveTo(p0.x, p0.y);
+        trailCtx.lineTo(p1.x, p1.y);
+        trailCtx.strokeStyle = `rgba(96, 165, 250, ${alpha})`;
         trailCtx.lineWidth = width;
         trailCtx.lineCap = 'round';
+        trailCtx.lineJoin = 'round';
         trailCtx.stroke();
     }
 
-    // Draw glow at the end
-    if (trailPoints.length > 0) {
-        const last = trailPoints[trailPoints.length - 1];
-        const glowAlpha = 0.3;
-        const gradient = trailCtx.createRadialGradient(last.x, last.y, 0, last.x, last.y, 20);
-        gradient.addColorStop(0, `rgba(59, 130, 246, ${glowAlpha})`);
-        gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
-        trailCtx.beginPath();
-        trailCtx.arc(last.x, last.y, 20, 0, Math.PI * 2);
-        trailCtx.fillStyle = gradient;
-        trailCtx.fill();
-    }
+    // Bright dot at the end
+    const last = trailPoints[trailPoints.length - 1];
+    const glow = trailCtx.createRadialGradient(last.x, last.y, 0, last.x, last.y, 16);
+    glow.addColorStop(0, 'rgba(96, 165, 250, 0.6)');
+    glow.addColorStop(0.5, 'rgba(139, 92, 246, 0.2)');
+    glow.addColorStop(1, 'rgba(139, 92, 246, 0)');
+    trailCtx.beginPath();
+    trailCtx.arc(last.x, last.y, 16, 0, Math.PI * 2);
+    trailCtx.fillStyle = glow;
+    trailCtx.fill();
 
     requestAnimationFrame(drawTrail);
 }
