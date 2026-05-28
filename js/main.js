@@ -28,10 +28,8 @@ window.addEventListener('load', () => {
 // ===== CUSTOM CURSOR =====
 const cursorDot = document.getElementById('cursorDot');
 const cursorRing = document.getElementById('cursorRing');
-const cursorTrail = document.getElementById('cursorTrail');
 let mouseX = 0, mouseY = 0;
 let ringX = 0, ringY = 0;
-let trailX = 0, trailY = 0;
 
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
@@ -49,14 +47,81 @@ function animateCursor() {
     ringX += (mouseX - ringX) * 0.15;
     ringY += (mouseY - ringY) * 0.15;
     cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
-
-    trailX += (mouseX - trailX) * 0.08;
-    trailY += (mouseY - trailY) * 0.08;
-    cursorTrail.style.transform = `translate(${trailX}px, ${trailY}px)`;
-
     requestAnimationFrame(animateCursor);
 }
 animateCursor();
+
+// ===== CANVAS CURSOR TRAIL =====
+const trailCanvas = document.getElementById('cursorTrailCanvas');
+const trailCtx = trailCanvas.getContext('2d');
+const trailPoints = [];
+const TRAIL_LENGTH = 30;
+
+function resizeTrailCanvas() {
+    trailCanvas.width = window.innerWidth;
+    trailCanvas.height = window.innerHeight;
+}
+resizeTrailCanvas();
+window.addEventListener('resize', resizeTrailCanvas);
+
+document.addEventListener('mousemove', (e) => {
+    trailPoints.push({ x: e.clientX, y: e.clientY, time: Date.now() });
+    if (trailPoints.length > TRAIL_LENGTH) trailPoints.shift();
+});
+
+function drawTrail() {
+    trailCtx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
+
+    if (trailPoints.length < 2) {
+        requestAnimationFrame(drawTrail);
+        return;
+    }
+
+    const now = Date.now();
+
+    // Remove old points (older than 300ms)
+    while (trailPoints.length > 0 && now - trailPoints[0].time > 300) {
+        trailPoints.shift();
+    }
+
+    if (trailPoints.length < 2) {
+        requestAnimationFrame(drawTrail);
+        return;
+    }
+
+    // Draw the trail as a smooth curve
+    for (let i = 1; i < trailPoints.length; i++) {
+        const p0 = trailPoints[i - 1];
+        const p1 = trailPoints[i];
+        const age = (now - p1.time) / 300;
+        const alpha = Math.max(0, 1 - age) * 0.6;
+        const width = Math.max(1, (1 - age) * 8);
+
+        trailCtx.beginPath();
+        trailCtx.moveTo(p0.x, p0.y);
+        trailCtx.lineTo(p1.x, p1.y);
+        trailCtx.strokeStyle = `rgba(59, 130, 246, ${alpha})`;
+        trailCtx.lineWidth = width;
+        trailCtx.lineCap = 'round';
+        trailCtx.stroke();
+    }
+
+    // Draw glow at the end
+    if (trailPoints.length > 0) {
+        const last = trailPoints[trailPoints.length - 1];
+        const glowAlpha = 0.3;
+        const gradient = trailCtx.createRadialGradient(last.x, last.y, 0, last.x, last.y, 20);
+        gradient.addColorStop(0, `rgba(59, 130, 246, ${glowAlpha})`);
+        gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+        trailCtx.beginPath();
+        trailCtx.arc(last.x, last.y, 20, 0, Math.PI * 2);
+        trailCtx.fillStyle = gradient;
+        trailCtx.fill();
+    }
+
+    requestAnimationFrame(drawTrail);
+}
+drawTrail();
 
 document.addEventListener('mousedown', () => cursorRing.classList.add('click'));
 document.addEventListener('mouseup', () => cursorRing.classList.remove('click'));
