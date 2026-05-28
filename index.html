@@ -18,6 +18,7 @@
     <!-- Custom Cursor -->
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
 
     <!-- Noise Overlay -->
     <div class="noise-overlay"></div>
@@ -27,6 +28,9 @@
 
     <!-- Gradient Spotlight -->
     <div class="spotlight" id="spotlight"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- Page Loader -->
     <div class="page-loader" id="pageLoader">
@@ -82,6 +86,7 @@
     <section class="hero" id="hero">
         <div class="hero-bg-blob hero-bg-blob-1"></div>
         <div class="hero-bg-blob hero-bg-blob-2"></div>
+        <div class="hero-bg-blob hero-bg-blob-3"></div>
         <div class="hero-particles">
             <div class="particle"></div>
             <div class="particle"></div>
@@ -143,6 +148,7 @@
                     <span class="corner-accent top-right"></span>
                     <span class="corner-accent bottom-left"></span>
                     <span class="corner-accent bottom-right"></span>
+                    <span class="expertise-number">01</span>
                     <div class="tilt-card-inner">
                     <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="4"/><path d="M16 18h16M16 24h16M16 30h10"/></svg>
                     <h3>Enterprise Resource Planning</h3>
@@ -155,6 +161,7 @@
                     <span class="corner-accent top-right"></span>
                     <span class="corner-accent bottom-left"></span>
                     <span class="corner-accent bottom-right"></span>
+                    <span class="expertise-number">02</span>
                     <div class="tilt-card-inner">
                     <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><path d="M24 12v12l8 4"/></svg>
                     <h3>Business Process Modeling</h3>
@@ -167,6 +174,7 @@
                     <span class="corner-accent top-right"></span>
                     <span class="corner-accent bottom-left"></span>
                     <span class="corner-accent bottom-right"></span>
+                    <span class="expertise-number">03</span>
                     <div class="tilt-card-inner">
                     <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 36V16l16-8 16 8v20L24 44 8 36z"/><path d="M8 16l16 8 16-8M24 24v20"/></svg>
                     <h3>Odoo ERP Implementation</h3>
@@ -179,6 +187,7 @@
                     <span class="corner-accent top-right"></span>
                     <span class="corner-accent bottom-left"></span>
                     <span class="corner-accent bottom-right"></span>
+                    <span class="expertise-number">04</span>
                     <div class="tilt-card-inner">
                     <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 4L6 14v20l18 10 18-10V14L24 4z"/><path d="M6 14l18 10 18-10M24 24v20"/></svg>
                     <h3>IT Governance & Audit</h3>
@@ -191,6 +200,7 @@
                     <span class="corner-accent top-right"></span>
                     <span class="corner-accent bottom-left"></span>
                     <span class="corner-accent bottom-right"></span>
+                    <span class="expertise-number">05</span>
                     <div class="tilt-card-inner">
                     <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8h24v32H12z"/><path d="M20 16h8M20 22h8M20 28h5"/></svg>
                     <h3>Business Process Analysis</h3>
@@ -203,6 +213,7 @@
                     <span class="corner-accent top-right"></span>
                     <span class="corner-accent bottom-left"></span>
                     <span class="corner-accent bottom-right"></span>
+                    <span class="expertise-number">06</span>
                     <div class="tilt-card-inner">
                     <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 4v8M24 36v8M4 24h8M36 24h8M10 10l6 6M32 32l6 6M38 10l-6 6M16 32l-6 6"/><circle cx="24" cy="24" r="8"/></svg>
                     <h3>Digital Transformation</h3>
@@ -215,6 +226,7 @@
                     <span class="corner-accent top-right"></span>
                     <span class="corner-accent bottom-left"></span>
                     <span class="corner-accent bottom-right"></span>
+                    <span class="expertise-number">07</span>
                     <div class="tilt-card-inner">
                     <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 4h16v8H16zM8 12h32v28H8z"/><path d="M16 20h16M16 26h16M16 32h10"/></svg>
                     <h3>AI-Assisted Development</h3>
@@ -227,6 +239,7 @@
                     <span class="corner-accent top-right"></span>
                     <span class="corner-accent bottom-left"></span>
                     <span class="corner-accent bottom-right"></span>
+                    <span class="expertise-number">08</span>
                     <div class="tilt-card-inner">
                     <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="16" cy="24" r="8"/><circle cx="32" cy="24" r="8"/><path d="M24 18v12"/></svg>
                     <h3>Information Systems Adoption</h3>
@@ -239,6 +252,7 @@
                     <span class="corner-accent top-right"></span>
                     <span class="corner-accent bottom-left"></span>
                     <span class="corner-accent bottom-right"></span>
+                    <span class="expertise-number">09</span>
                     <div class="tilt-card-inner">
                     <svg class="expertise-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 40V16l16-12 16 12v24"/><path d="M18 40V30h12v10"/><path d="M4 20l20-16 20 16"/></svg>
                     <h3>SME Digitalization</h3>
@@ -285,18 +299,22 @@
             <div class="stats-grid">
                 <div class="stat-item reveal stagger-1">
                     <div class="counter" data-target="8">0</div>
+                    <div class="counter-glow"></div>
                     <div class="counter-label">Publications</div>
                 </div>
                 <div class="stat-item reveal stagger-2">
                     <div class="counter" data-target="30">0</div>
+                    <div class="counter-glow"></div>
                     <div class="counter-label">Citations</div>
                 </div>
                 <div class="stat-item reveal stagger-3">
                     <div class="counter" data-target="4">0</div>
+                    <div class="counter-glow"></div>
                     <div class="counter-label">Industry Projects</div>
                 </div>
                 <div class="stat-item reveal stagger-4">
                     <div class="counter" data-target="3">0</div>
+                    <div class="counter-glow"></div>
                     <div class="counter-label">Courses Taught</div>
                 </div>
             </div>
@@ -578,7 +596,11 @@
                 <p class="contact-text reveal stagger-2">
                     Whether you need ERP implementation, process modeling, or digital transformation guidance — let's talk.
                 </p>
-                <div class="contact-buttons reveal stagger-3">
+                <div class="contact-availability reveal stagger-3">
+                    <span class="availability-dot"></span>
+                    <span>Available for consulting & projects</span>
+                </div>
+                <div class="contact-buttons reveal stagger-4">
                     <a href="mailto:tikno@uisi.ac.id" class="btn-primary">
                         <span>Get In Touch</span>
                         <span class="btn-arrows">
@@ -587,7 +609,7 @@
                         </span>
                     </a>
                 </div>
-                <div class="contact-info reveal stagger-4">
+                <div class="contact-info reveal stagger-5">
                     <div class="contact-info-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                         <span>tikno@uisi.ac.id</span>
@@ -612,6 +634,12 @@
     <!-- Footer -->
     <footer class="footer">
         <span class="footer-logo">Tikno, S.T., M.Kom.</span>
+        <nav class="footer-nav">
+            <a href="#expertise">Expertise</a>
+            <a href="#experience">Experience</a>
+            <a href="#research">Research</a>
+            <a href="#contact">Contact</a>
+        </nav>
         <div class="footer-social">
             <a href="https://scholar.google.com/citations?user=4sZhahkAAAAJ&hl=id" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Google Scholar">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.225L12 4l7.162 8.725L24 9.5z"/></svg>
