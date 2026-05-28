@@ -28,13 +28,15 @@ window.addEventListener('load', () => {
 // ===== CUSTOM CURSOR =====
 const cursorDot = document.getElementById('cursorDot');
 const cursorRing = document.getElementById('cursorRing');
+const cursorTrail = document.getElementById('cursorTrail');
 let mouseX = 0, mouseY = 0;
 let ringX = 0, ringY = 0;
+let trailX = 0, trailY = 0;
 
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    cursorDot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
 
     const spotlight = document.getElementById('spotlight');
     if (spotlight) {
@@ -46,80 +48,15 @@ document.addEventListener('mousemove', (e) => {
 function animateCursor() {
     ringX += (mouseX - ringX) * 0.15;
     ringY += (mouseY - ringY) * 0.15;
-    cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
+    cursorRing.style.transform = `translate(${ringX - 20}px, ${ringY - 20}px)`;
+
+    trailX += (mouseX - trailX) * 0.08;
+    trailY += (mouseY - trailY) * 0.08;
+    cursorTrail.style.transform = `translate(${trailX - 12}px, ${trailY - 12}px)`;
+
     requestAnimationFrame(animateCursor);
 }
 animateCursor();
-
-// ===== CANVAS CURSOR TRAIL =====
-const trailCanvas = document.getElementById('cursorTrailCanvas');
-const trailCtx = trailCanvas.getContext('2d');
-const trailPoints = [];
-const TRAIL_LENGTH = 25;
-
-function resizeTrailCanvas() {
-    trailCanvas.width = window.innerWidth;
-    trailCanvas.height = window.innerHeight;
-}
-resizeTrailCanvas();
-window.addEventListener('resize', resizeTrailCanvas);
-
-document.addEventListener('mousemove', (e) => {
-    trailPoints.push({ x: e.clientX, y: e.clientY });
-    if (trailPoints.length > TRAIL_LENGTH) trailPoints.shift();
-});
-
-function drawTrail() {
-    trailCtx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
-
-    if (trailPoints.length < 2) {
-        requestAnimationFrame(drawTrail);
-        return;
-    }
-
-    // Draw glowing trail
-    for (let i = 1; i < trailPoints.length; i++) {
-        const p0 = trailPoints[i - 1];
-        const p1 = trailPoints[i];
-        const progress = i / trailPoints.length;
-        const alpha = progress * 0.8;
-        const width = progress * 10 + 2;
-
-        // Glow layer
-        trailCtx.beginPath();
-        trailCtx.moveTo(p0.x, p0.y);
-        trailCtx.lineTo(p1.x, p1.y);
-        trailCtx.strokeStyle = `rgba(139, 92, 246, ${alpha * 0.4})`;
-        trailCtx.lineWidth = width + 8;
-        trailCtx.lineCap = 'round';
-        trailCtx.lineJoin = 'round';
-        trailCtx.stroke();
-
-        // Core layer
-        trailCtx.beginPath();
-        trailCtx.moveTo(p0.x, p0.y);
-        trailCtx.lineTo(p1.x, p1.y);
-        trailCtx.strokeStyle = `rgba(96, 165, 250, ${alpha})`;
-        trailCtx.lineWidth = width;
-        trailCtx.lineCap = 'round';
-        trailCtx.lineJoin = 'round';
-        trailCtx.stroke();
-    }
-
-    // Bright dot at the end
-    const last = trailPoints[trailPoints.length - 1];
-    const glow = trailCtx.createRadialGradient(last.x, last.y, 0, last.x, last.y, 16);
-    glow.addColorStop(0, 'rgba(96, 165, 250, 0.6)');
-    glow.addColorStop(0.5, 'rgba(139, 92, 246, 0.2)');
-    glow.addColorStop(1, 'rgba(139, 92, 246, 0)');
-    trailCtx.beginPath();
-    trailCtx.arc(last.x, last.y, 16, 0, Math.PI * 2);
-    trailCtx.fillStyle = glow;
-    trailCtx.fill();
-
-    requestAnimationFrame(drawTrail);
-}
-drawTrail();
 
 document.addEventListener('mousedown', () => cursorRing.classList.add('click'));
 document.addEventListener('mouseup', () => cursorRing.classList.remove('click'));
